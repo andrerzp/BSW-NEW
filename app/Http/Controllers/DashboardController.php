@@ -18,6 +18,11 @@ class DashboardController extends Controller
         return view('Redirect.redirect');
     }
 
+    public function beranda()
+    {
+        return view('DashboardUser.beranda');
+    }
+
     public function dashboard_index()
     {
         return view('Dashboard.dashboard');

@@ -19,6 +19,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 route::group(['middleware' => ['auth','ceklevel:user,admin,staf']], function () {
     Route::get('/redirect','DashboardController@redirect')->name('redirect');
     Route::get('/dashboard','DashboardController@dashboard_index')->name('dashboard');
+    Route::get('/beranda', 'DashboardController@beranda')->name('beranda');
     Route::get('/listpermohonan','DashboardController@list_permohonan')->name('listpermohonan');
     Route::get('/tracking','DashboardController@tracking_permohonan')->name('tracking');
     Route::get('/usulan','DashboardController@usulan')->name('usulan');
@@ -38,9 +39,11 @@ route::group(['middleware' => ['auth','ceklevel:user,admin,staf']], function () 
     Route::post('/update-user/{id}','UsersController@update')->name('update-user');
     Route::get('/delete-user/{id}','UsersController@destroy')->name('delete-user');
 
-    #Buat Permohonan
-    Route::get('/buat-permohonan','PermohonanController@index')->name('buat-permohonan');
-    Route::post('/simpan-permohonan','PermohonanController@store')->name('simpan-permohonan');
+    #permohonan
+    Route::get('/buatpermohonan','PermohonanController@index')->name('buatpermohonan');
+    Route::post('/simpan','PermohonanController@store')->name('simpan');
+    Route::get('/listpermohonan','PermohonanController@create')->name('listpermohonan');
+#permohonan
 
     #Data Permohonan (Staff Pemroses)
     Route::get('/data-permohonan','PermohonanController@index_staf')->name('data-permohonan');
@@ -53,7 +56,7 @@ route::group(['middleware' => ['auth','ceklevel:user,admin,staf']], function () 
 });
 
 Auth::routes();
-
+Route::get('/profil','UsersController@profil')->name('profil');
 
 #reklame
 Route::get('/reklame', function () {
@@ -71,3 +74,12 @@ Route::get('/daftarorang', function () {
     return view('Pages.daftarorang');
 })->name('daftarorang');
 #reklame
+
+#search
+Route::get('/search','PermohonanController@search');
+Route::get('/delete/{id}','PermohonanController@destroy')->name('delete');
+#search
+
+#download
+Route::get('/download','PermohonanController@download')->name('download');
+#download

@@ -37,8 +37,14 @@
                with font-awesome or any other icon font library -->
 
             @if(auth()->user()->level=="user")
+            <li class="nav-item">
+                <a href="{{route('beranda')}}" class="nav-link">
+                    <i class="nav-icon fas fa-home"></i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
            <li class="nav-item">
-              <a href="{{route('buat-permohonan')}}" class="nav-link">
+              <a href="{{route('buatpermohonan')}}" class="nav-link">
                 <i class="nav-icon fas fa-plus"></i>
                 <p>Buat Permohonan</p>
               </a>
@@ -282,7 +288,7 @@
               </p>
             </a>
           </li>
-          
+
           <li class="nav-item">
             <a href="{{route('prosesizin')}}" class="nav-link">
               <i class="nav-icon fa fa-spinner"></i>
@@ -333,22 +339,6 @@
             </a>
           </li>
           @endif
-
-          <li class="nav-item">
-            <a href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();"
-            class="nav-link">
-              <i class="nav-icon fa fa-times"></i>
-              <p class="text">Logout</p>
-            </a>
-
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-              @csrf
-            </form>
-
-          </li>
-
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

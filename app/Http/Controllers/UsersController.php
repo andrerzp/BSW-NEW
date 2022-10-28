@@ -58,6 +58,10 @@ class UsersController extends Controller
         //
     }
 
+    function profil(){
+        return view('DashboardUser.profil');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
