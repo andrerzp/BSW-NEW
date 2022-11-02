@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Permohonan;
 
+use App\Flow;
+
 use App\Http\Requests\PermohonanRequest;
 
 use Illuminate\Support\Facades\DB;
@@ -26,7 +28,7 @@ class PermohonanController extends Controller
 
     public function index_staf()
     {
-        $dtPermohonan = Permohonan::all();
+        $dtPermohonan = Permohonan::with('flow')->paginate(10);
         return view('DashboardStaf.data-permohonan',compact('dtPermohonan'));
     }
 
@@ -52,51 +54,51 @@ class PermohonanController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'npwp'                          => 'required|min:7|max:20',
-            'nama_hukum'                    => 'required|min:7|max:20',
-            'badan_hukum'                   => 'required|min:7|max:20',
-            'no_telp'                       => 'required|min:7|max:20',
-            'no_ktp'                        => 'required|min:7|max:20',
-            'nama_penyerah'                 => 'required|min:7|max:20',
-            'no_telp_penyerah'              => 'required|min:7|max:20',
-            'no_pl'                         => 'required|min:7|max:20',
-            'tanggal'                       => 'required|min:7|max:20',
-            'subwilayah'                    => 'required|min:7|max:20',
-            'alamat'                        => 'required|min:7|max:20',
-            'luas_lokasi'                   => 'required|min:7|max:20',
-            'peruntukan'                    => 'required|min:7|max:20',
-            'kondisi'                       => 'required|min:7|max:20',
-            'surat_perubahan_peruntukan'    => 'required|min:7|max:20',
-            'file_scan_uwt'                 => 'required|min:7|max:20',
-            'file_endorsement_pl'
+            'NPWP'                  => 'required',
+            'NAMA_BADAN_HUKUM'      => 'required',
+            'ALAMAT_BADAN_HUKUM'    => 'required',
+            'NO_TELP_BADAN_HUKUM'   => 'required',
+            'NO_KTP_BADAN_HUKUM'    => 'required',
+            'NAMA_PENYERAH'         => 'required',
+            'NO_TELP_PENYERAH'      => 'required',
+            'NO_PL'                 => 'required',
+            'TANGGAL_PL'            => 'required',
+            'SUBWILAYAH'            => 'required',
+            'ALAMAT'                => 'required',
+            'LUAS_LOKASI'           => 'required',
+            'PERUNTUKAN'            => 'required',
+            'KONDISI_LOKASI'        => 'required',
+            'BERKAS_SPP'            => 'required',
+            'BERKAS_FSU'            => 'required',
+            'BERKAS_FEP'            => 'required',
         ]);
 
-        $spp = $request->surat_perubahan_peruntukan;
-        $fsu = $request->file_scan_uwt;
-        $fep = $request->file_endorsement_pl;
+        $spp = $request->BERKAS_SPP;
+        $fsu = $request->BERKAS_FSU;
+        $fep = $request->BERKAS_FEP;
         $fileSPP = time().rand(100,999).".".$spp->getClientOriginalExtension();
         $fileFSU = time().rand(100,999).".".$fsu->getClientOriginalExtension();
         $fileFEP = time().rand(100,999).".".$fep->getClientOriginalExtension();
 
         Permohonan::create([
-            'npwp'                          => $request->npwp,
-            'nama_hukum'                    => $request->nama_hukum,
-            'badan_hukum'                   => $request->badan_hukum,
-            'no_telp'                       => $request->no_telp,
-            'no_ktp'                        => $request->no_ktp,
-            'nama_penyerah'                 => $request->nama_penyerah,
-            'no_telp_penyerah'              => $request->no_telp_penyerah,
-            'no_pl'                         => $request->no_pl,
-            'tanggal'                       => $request->tanggal,
-            'subwilayah'                    => $request->subwilayah,
-            'alamat'                        => $request->alamat,
-            'luas_lokasi'                   => $request->luas_lokasi,
-            'peruntukan'                    => $request->peruntukan,
-            'kondisi'                       => $request->kondisi,
-            'surat_perubahan_peruntukan'    => $fileSPP,
-            'file_scan_uwt'                 => $fileFSU,
-            'file_endorsement_pl'           => $fileFEP,
-
+            'NPWP'                  => $request->NPWP,
+            'NAMA_BADAN_HUKUM'      => $request->NAMA_BADAN_HUKUM,
+            'ALAMAT_BADAN_HUKUM'    => $request->ALAMAT_BADAN_HUKUM,
+            'NO_TELP_BADAN_HUKUM'   => $request->NO_TELP_BADAN_HUKUM,
+            'NO_KTP_BADAN_HUKUM'    => $request->NO_KTP_BADAN_HUKUM,
+            'NAMA_PENYERAH'         => $request->NAMA_PENYERAH,
+            'NO_TELP_PENYERAH'      => $request->NO_TELP_PENYERAH,
+            'NO_PL'                 => $request->NO_PL,
+            'TANGGAL_PL'            => $request->TANGGAL_PL,
+            'SUBWILAYAH'            => $request->SUBWILAYAH,
+            'ALAMAT'                => $request->ALAMAT,
+            'LUAS_LOKASI'           => $request->LUAS_LOKASI,
+            'PERUNTUKAN'            => $request->PERUNTUKAN,
+            'KONDISI_LOKASI'        => $request->KONDISI_LOKASI,
+            'BERKAS_SPP'            => $request->BERKAS_SPP,
+            'BERKAS_FSU'            => $request->BERKAS_FSU,
+            'BERKAS_FEP'            => $request->BERKAS_FEP,
+            'flow_id'               => 1,
         ]);
 
         $spp->move(public_path().'/img', $fileSPP);
@@ -126,7 +128,9 @@ class PermohonanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $prmohonan = Permohonan::findorfail($id);
+        $flw = Flow::all();
+        return view('DashboardStaf.edit-permohonan',compact('prmohonan','flw'));
     }
 
     /**
@@ -147,7 +151,10 @@ class PermohonanController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $prmohonan = Permohonan::findorfail($id);
+        $prmohonan->update($request->all());
+        return redirect('data-permohonan')->with('toast_success', 'Data berhasil diupdate.');
+        
     }
 
     public function download($id)

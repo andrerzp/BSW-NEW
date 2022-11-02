@@ -58,39 +58,34 @@
                 <div class="card-body">
                   <table class="table table-bordered">
                     <tr>
-                      <th>NPWP</th>
+                      <th>NO</th>
                       <th>Nama Badan Hukum</th>
-                      <th>Alamat Badan Hukum</th>
-                      <th>No. telp Pemilik Badan Hukum</th>
-                      <th>No. KTP Pemilik Badan Hukum</th>
                       <th>Nama Penyerah Dokumen</th>
                       <th>No. telp Penyerah</th>
                       <th>No. PL</th>
                       <th>Tanggal PL</th>
-                      <th>Subwilayah Pengembangan</th>
-                      <th>Alamat Lokasi</th>
-                      <th>Luas Lokasi (M2)</th>
-                      <th>Peruntukan</th>
-                      <th>Kondisi Lokasi</th>
+                      <th>Status</th>
+                      <th>Aksi</th>
                     </tr>
                     
                     @foreach ($dtPermohonan as $item)
                     
                     <tr>
-                        <td>{{$item->npwp}}</td>
-                        <td>{{$item->nama_hukum}}</td>
-                        <td>{{$item->badan_hukum}}</td>
-                        <td>{{$item->no_telp}}</td>
-                        <td>{{$item->no_ktp}}</td>
-                        <td>{{$item->nama_penyerah}}</td>
-                        <td>{{$item->no_telp_penyerah}}</td>
-                        <td>{{$item->no_pl}}</td>
-                        <td>{{$item->tanggal}}</td>
-                        <td>{{$item->subwilayah}}</td>
-                        <td>{{$item->alamat}}</td>
-                        <td>{{$item->luas_lokasi}}</td>
-                        <td>{{$item->peruntukan}}</td>
-                        <td>{{$item->kondisi}}</td>
+                      <td>{{$loop->iteration}}</td>  
+                      <td>{{$item->NPWP}}</td>
+                      <td>{{$item->NAMA_PENYERAH}}</td>
+                      <td>{{$item->NO_TELP_PENYERAH}}</td>
+                      <td>{{$item->NO_PL}}</td>
+                      <td>{{$item->TANGGAL_PL}}</td>
+                      <td>{{$item->flow->flow}}</td>
+                      <td>
+                        <a href="{{url('edit-permohonan',$item->id)}}" class="btn">
+                          <i class="fas fa-cog"></i>
+                        </a>
+                        <a href="{{url('delete-permohonan',$item->id)}}" class="btn">
+                          <i class="fas fa-trash" style="color:brown"></i>
+                        </a>
+                      </td>
                     </tr>
                     
                     @endforeach

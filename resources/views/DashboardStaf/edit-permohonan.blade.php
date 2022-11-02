@@ -58,12 +58,12 @@
                                 <h5>Silahkan masukkan data.</h5>
 
                                 <div class="card-body">
-                                    <form action="{{route('simpan')}}" method="post" enctype="multipart/form-data">
+                                    <form action="{{url('update-permohonan',$prmohonan->id)}}" method="post" enctype="multipart/form-data">
                                         {{ csrf_field() }}
 
                                         <div class="form-group"><b>NPWP Badan Hukum</b>
                                             <input type="text" id="NPWP" name="NPWP" class="form-control @error('NPWP')
-                                            is-invalid @enderror" placeholder="Isi data NPWP Badan Hukum">
+                                            is-invalid @enderror" placeholder="Isi data NPWP Badan Hukum" value="{{$prmohonan->NPWP}}" readonly>
                                             @error('NPWP')
                                             <span class="text-danger">This field is required.</span>
                                             @enderror
@@ -71,7 +71,7 @@
 
                                         <div class="form-group"><b>Nama Badan Hukum</b>
                                             <input type="text" id="NAMA_BADAN_HUKUM" name="NAMA_BADAN_HUKUM" class="form-control @error('NAMA_BADAN_HUKUM')
-                                            is-invalid @enderror" placeholder="Isi data Nama Badan Hukum">
+                                            is-invalid @enderror" placeholder="Isi data Nama Badan Hukum" value="{{$prmohonan->NAMA_BADAN_HUKUM}}" readonly>
                                             @error('NAMA_BADAN_HUKUM')
                                             <span class="text-danger">This field is required.</span>
                                             @enderror
@@ -79,7 +79,7 @@
 
                                         <div class="form-group"><b>Alamat Badan Hukum</b>
                                             <input type="text" id="ALAMAT_BADAN_HUKUM" name="ALAMAT_BADAN_HUKUM" class="form-control @error('ALAMAT_BADAN_HUKUM')
-                                            is-invalid @enderror" placeholder="Isi data Alamat Badan Hukum">
+                                            is-invalid @enderror" placeholder="Isi data Alamat Badan Hukum" value="{{$prmohonan->ALAMAT_BADAN_HUKUM}}" readonly>
                                             @error('ALAMAT_BADAN_HUKUM')
                                             <span class="text-danger">This field is required.</span>
                                             @enderror
@@ -87,7 +87,7 @@
 
                                         <div class="form-group"><b>No. Telp Pemilik Badan Hukum</b>
                                             <input type="text" id="NO_TELP_BADAN_HUKUM" name="NO_TELP_BADAN_HUKUM" class="form-control @error('NO_TELP_BADAN_HUKUM')
-                                            is-invalid @enderror" placeholder="Isi data No. Telepon Pemilik Badan Hukum">
+                                            is-invalid @enderror" placeholder="Isi data No. Telepon Pemilik Badan Hukum" value="{{$prmohonan->NO_TELP_BADAN_HUKUM}}" readonly>
                                             @error('NO_TELP_BADAN_HUKUM')
                                             <span class="text-danger">This field is required.</span>
                                             @enderror
@@ -95,7 +95,7 @@
 
                                         <div class="form-group"><b>No. KTP Pemilik Badan Hukum</b>
                                             <input type="text" id="NO_KTP_BADAN_HUKUM" name="NO_KTP_BADAN_HUKUM" class="form-control @error('NO_KTP_BADAN_HUKUM')
-                                            is-invalid @enderror" placeholder="Isi data No KTP Pemilik Badan Hukum">
+                                            is-invalid @enderror" placeholder="Isi data No KTP Pemilik Badan Hukum" value="{{$prmohonan->NO_KTP_BADAN_HUKUM}}" readonly>
                                             @error('NO_KTP_BADAN_HUKUM')
                                             <span class="text-danger">This field is required.</span>
                                             @enderror
@@ -103,7 +103,7 @@
 
                                         <div class="form-group"><b>Nama Penyerah Dokumen</b>
                                             <input type="text" id="NAMA_PENYERAH" name="NAMA_PENYERAH" class="form-control @error('NAMA_PENYERAH')
-                                            is-invalid @enderror" placeholder="Isi data Nama Penyerah Dokumen">
+                                            is-invalid @enderror" placeholder="Isi data Nama Penyerah Dokumen" value="{{$prmohonan->NAMA_PENYERAH}}" readonly>
                                             @error('NAMA_PENYERAH')
                                             <span class="text-danger">This field is required.</span>
                                             @enderror
@@ -111,7 +111,7 @@
 
                                         <div class="form-group"><b>No. Telepon Penyerah</b>
                                             <input type="text" id="NO_TELP_PENYERAH" name="NO_TELP_PENYERAH" class="form-control @error('NO_TELP_PENYERAH')
-                                            is-invalid @enderror" placeholder="Isi data No. Telepon Penyerah">
+                                            is-invalid @enderror" placeholder="Isi data No. Telepon Penyerah" value="{{$prmohonan->NO_TELP_PENYERAH}}" readonly>
                                             @error('NO_TELP_PENYERAH')
                                             <span class="text-danger">This field is required.</span>
                                             @enderror
@@ -119,7 +119,7 @@
 
                                         <div class="form-group"><b>No. PL</b>
                                             <input type="text" id="NO_PL" name="NO_PL" class="form-control @error('NO_PL')
-                                            is-invalid @enderror" placeholder="Isi data No. PL">
+                                            is-invalid @enderror" placeholder="Isi data No. PL" value="{{$prmohonan->NO_PL}}" readonly>
                                             @error('NO_PL')
                                             <span class="text-danger">This field is required.</span>
                                             @enderror
@@ -127,14 +127,14 @@
 
                                         <div class="form-group"><b>Tanggal PL</b>
                                             <input type="date" id="TANGGAL_PL" name="TANGGAL_PL" class="form-control @error('TANGGAL_PL')
-                                            is-invalid @enderror" placeholder="Tanggal PL">
+                                            is-invalid @enderror" placeholder="Tanggal PL" value="{{$prmohonan->TANGGAL_PL}}" readonly>
                                             @error('TANGGAL_PL')
                                             <span class="text-danger">This field is required.</span>
                                             @enderror
                                         </div>
 
                                         <div class="form-group"><b>Subwilayah Pengembangan</b>
-                                            <select id="SUBWILAYAH" name="SUBWILAYAH" class="form-control" placeholder="Isi data Subwilayah Pengembangan">
+                                            <select id="SUBWILAYAH" name="SUBWILAYAH" class="form-control" placeholder="Isi data Subwilayah Pengembangan" value="{{$prmohonan->SUBWILAYAH}}" readonly>
                                                 <option>SWP - Batam Center (Core)</option>
                                                 <option>SWP - Batam Center (Kelurahan)</option>
                                                 <option>SWP - Nagoya</option>
@@ -150,7 +150,7 @@
 
                                         <div class="form-group"><b>Alamat Lokasi</b>
                                             <input type="text" id="ALAMAT" name="ALAMAT" class="form-control @error('ALAMAT')
-                                            is-invalid @enderror" placeholder="Isi data Alamat Lokasi">
+                                            is-invalid @enderror" placeholder="Isi data Alamat Lokasi" value="{{$prmohonan->ALAMAT}}" readonly>
                                             @error('ALAMAT')
                                             <span class="text-danger">This field is required.</span>
                                             @enderror
@@ -158,7 +158,7 @@
 
                                         <div class="form-group"><b>Luas Lokasi (M2)</b>
                                             <input type="text" id="LUAS_LOKASI" name="LUAS_LOKASI" class="form-control @error('LUAS_LOKASI')
-                                            is-invalid @enderror" placeholder="Isi data Luas Lokasi">
+                                            is-invalid @enderror" placeholder="Isi data Luas Lokasi" value="{{$prmohonan->LUAS_LOKASI}}" readonly>
                                             @error('LUAS_LOKASI')
                                             <span class="text-danger">This field is required.</span>
                                             @enderror
@@ -166,14 +166,14 @@
 
                                         <div class="form-group"><b>Peruntukan</b>
                                             <input type="text" id="PERUNTUKAN" name="PERUNTUKAN" class="form-control @error('PERUNTUKAN')
-                                            is-invalid @enderror" placeholder="Isi data Peruntukan ">
+                                            is-invalid @enderror" placeholder="Isi data Peruntukan " value="{{$prmohonan->PERUNTUKAN}}" readonly>
                                             @error('PERUNTUKAN')
                                             <span class="text-danger">This field is required.</span>
                                             @enderror
                                         </div>
 
                                         <div class="form-group"><b>Kondisi Lokasi</b>
-                                            <select id="KONDISI_LOKASI" name="KONDISI_LOKASI" class="form-control" placeholder="Isi data  Kondisi Lokasi">
+                                            <select id="KONDISI_LOKASI" name="KONDISI_LOKASI" class="form-control" placeholder="Isi data  Kondisi Lokasi" value="{{$prmohonan->KONDISI_LOKASI}}" readonly>
                                                 <option>Terbangun</option>
                                                 <option>Tidak Terbangun</option>
                                             </select>
@@ -183,15 +183,25 @@
                                             <i class="fa fa-exclamation-triangle fa-1 pull-left"></i> <strong>Warning:</strong> File Scan Harus Asli dan Berwarna
                                         </div>
                                         <div class="form-group"><b>Surat Perubahan Peruntukan</b>
-                                            <input type="file" id="BERKAS_SPP" name="BERKAS_SPP" class="form-control" placeholder="Isi data Surat Perubahan Peruntukan">
+                                            <input type="file" id="BERKAS_SPP" name="BERKAS_SPP" class="form-control" placeholder="Isi data Surat Perubahan Peruntukan" value="{{$prmohonan->BERKAS_SPP}}" readonly>
                                         </div>
 
                                         <div class="form-group"><b>File Scan UWT</b>
-                                            <input type="file" id="BERKAS_FSU" name="BERKAS_FSU" class="form-control" placeholder="Isi data File Scan UWT">
+                                            <input type="file" id="BERKAS_FSU" name="BERKAS_FSU" class="form-control" placeholder="Isi data File Scan UWT" value="{{$prmohonan->BERKAS_FSU}}" readonly>
                                         </div>
                                         <div class="form-group"><b>File Endorsement PL</b>
-                                            <input type="file" id="BERKAS_FEP" name="BERKAS_FEP" class="form-control" placeholder="Isi data File Endorsement PL">
+                                            <input type="file" id="BERKAS_FEP" name="BERKAS_FEP" class="form-control" placeholder="Isi data File Endorsement PL" value="{{$prmohonan->BERKAS_FEP}}" readonly>
                                         </div>
+
+                                        <div class="form-group"><b>Status</b>
+                                            <select id="flow_id" name="flow_id" class="form-control select 2">
+                                                <option disabled value>Pilih Aksi</option>
+                                                @foreach($flw as $item)
+                                                <option value="{{ $item->id }}">{{ $item->flow }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
                                         <div class="form-group">
                                             <button type="simpan" class="btn btn-success">Simpan</button>
                                         </div>

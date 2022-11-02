@@ -43,10 +43,11 @@ route::group(['middleware' => ['auth','ceklevel:user,admin,staf']], function () 
     Route::get('/buatpermohonan','PermohonanController@index')->name('buatpermohonan');
     Route::post('/simpan','PermohonanController@store')->name('simpan');
     Route::get('/listpermohonan','PermohonanController@create')->name('listpermohonan');
-#permohonan
 
     #Data Permohonan (Staff Pemroses)
     Route::get('/data-permohonan','PermohonanController@index_staf')->name('data-permohonan');
+    Route::get('/edit-permohonan/{id}','PermohonanController@edit')->name('edit-permohonan');
+    Route::post('/update-permohonan/{id}','PermohonanController@update')->name('update-permohonan');
 
     Route::get('/posisi','DashboardController@posisi')->name('posisi');
     Route::get('/datapemohon','DashboardController@datapemohon')->name('datapemohon');

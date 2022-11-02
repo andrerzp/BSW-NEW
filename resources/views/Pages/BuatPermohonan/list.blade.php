@@ -66,8 +66,6 @@
                                         <tr>
                                             <th>NO</th>
                                             <th>TGL.REGISTRASI</th>
-                                            <th>PERMOHONAN</th>
-                                            <th>PERIZINAN</th>
                                             <th>JENIS</th>
                                             <th>DOWNLOAD</th>
                                             <th>STATUS</th>
@@ -79,11 +77,9 @@
                                         @foreach ($dtPermohonan as $item)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$item->tanggal}}</td>
-                                            <td>{{$item->no_telp}}</td>
-                                            <td>{{$item->peruntukan}}</td>
+                                            <td>{{$item->TANGGAL_PL}}</td>
                                             <td>Fatwa Planologi</td>
-                                            <td><a href="{{ url('/img'.$item->file_scan_uwt) }}" target="_blank"><u>Tanda bukti pendaftaran</u></a></td>
+                                            <td><a href="{{ url('/img'.$item->BERKAS_FSU) }}" target="_blank"><u>Tanda bukti pendaftaran</u></a></td>
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-sm col-md-14">Verifikasi <i class="fas fa-check-circle" style="color:white"></i></button>
                                             </td>

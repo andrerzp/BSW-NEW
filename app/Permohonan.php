@@ -9,22 +9,29 @@ class Permohonan extends Model
     protected $table ="permohonan";
     protected $primaryKey = "id";
     protected $fillable = [
-        'npwp',
-        'nama_hukum',
-        'badan_hukum',
-        'no_telp',
-        'no_ktp',
-        'nama_penyerah',
-        'no_telp_penyerah',
-        'no_pl',
-        'tanggal',
-        'subwilayah',
-        'alamat',
-        'luas_lokasi',
-        'peruntukan',
-        'kondisi',
-        'surat_perubahan_peruntukan',
-        'file_scan_uwt',
-        'file_endorsement_pl'
+        'NPWP',
+        'NAMA_BADAN_HUKUM',
+        'ALAMAT_BADAN_HUKUM',
+        'NO_TELP_BADAN_HUKUM',
+        'NO_KTP_BADAN_HUKUM',
+        'NAMA_PENYERAH',
+        'NO_TELP_PENYERAH',
+        'NO_PL',
+        'TANGGAL_PL',
+        'SUBWILAYAH',
+        'ALAMAT',
+        'LUAS_LOKASI',
+        'PERUNTUKAN',
+        'KONDISI_LOKASI',
+        'BERKAS_SPP',
+        'BERKAS_FSU',
+        'BERKAS_FEP',
+        'flow_id'
     ];
+    
+        public function flow()
+        {
+            return $this->belongsTo(Flow::class);
+        }
+    
 }

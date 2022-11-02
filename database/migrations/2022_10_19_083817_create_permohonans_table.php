@@ -15,23 +15,23 @@ class CreatePermohonansTable extends Migration
     {
         Schema::create('permohonan', function (Blueprint $table) {
             $table->id();
-            $table->string('npwp',100);
-            $table->string('nama_hukum',100);
-            $table->string('badan_hukum',100);
-            $table->string('no_telp',100);
-            $table->string('no_ktp',100);
-            $table->string('nama_penyerah',100);
-            $table->string('no_telp_penyerah',100);
-            $table->string('no_pl',100);
-            $table->date('tanggal');
-            $table->string('subwilayah',100);
-            $table->string('alamat',100);
-            $table->string('luas_lokasi',100);
-            $table->string('peruntukan',100);
-            $table->string('kondisi',100);
-            $table->string('surat_perubahan_peruntukan',100);
-            $table->string('file_scan_uwt',100);
-            $table->string('file_endorsement_pl',100);
+            $table->string('NPWP',100);
+            $table->string('NAMA_BADAN_HUKUM',100);
+            $table->string('ALAMAT_BADAN_HUKUM',100);
+            $table->string('NO_TELP_BADAN_HUKUM',100);
+            $table->string('NO_KTP_BADAN_HUKUM',100);
+            $table->string('NAMA_PENYERAH',100);
+            $table->string('NO_TELP_PENYERAH',100);
+            $table->string('NO_PL',100);
+            $table->date('TANGGAL_PL');
+            $table->string('SUBWILAYAH',100);
+            $table->string('ALAMAT',100);
+            $table->string('LUAS_LOKASI',100);
+            $table->string('PERUNTUKAN',100);
+            $table->string('KONDISI_LOKASI',100);
+            $table->string('BERKAS_SPP',100);
+            $table->string('BERKAS_FSU',100);
+            $table->string('BERKAS_FEP',100);
             $table->timestamps();
         });
     }
