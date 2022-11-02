@@ -8,6 +8,8 @@ use App\Permohonan;
 
 use App\Flow;
 
+use App\Wilayah;
+
 use App\Http\Requests\PermohonanRequest;
 
 use Illuminate\Support\Facades\DB;
@@ -22,13 +24,13 @@ class PermohonanController extends Controller
      */
     public function index()
     {
-//        $dataGambar = Permohonan::latest()->get();
-        return view('Pages.BuatPermohonan.index');
+        $wlyh = Wilayah::all();
+        return view('Pages.BuatPermohonan.index', compact('wlyh'));
     }
 
     public function index_staf()
     {
-        $dtPermohonan = Permohonan::with('flow')->paginate(10);
+        $dtPermohonan = Permohonan::with('flow','wilayah')->latest()->paginate(10);
         return view('DashboardStaf.data-permohonan',compact('dtPermohonan'));
     }
 
@@ -63,7 +65,7 @@ class PermohonanController extends Controller
             'NO_TELP_PENYERAH'      => 'required',
             'NO_PL'                 => 'required',
             'TANGGAL_PL'            => 'required',
-            'SUBWILAYAH'            => 'required',
+            'wilayah_id'            => 'required',
             'ALAMAT'                => 'required',
             'LUAS_LOKASI'           => 'required',
             'PERUNTUKAN'            => 'required',
@@ -90,7 +92,7 @@ class PermohonanController extends Controller
             'NO_TELP_PENYERAH'      => $request->NO_TELP_PENYERAH,
             'NO_PL'                 => $request->NO_PL,
             'TANGGAL_PL'            => $request->TANGGAL_PL,
-            'SUBWILAYAH'            => $request->SUBWILAYAH,
+            'wilayah_id'            => $request->wilayah_id,
             'ALAMAT'                => $request->ALAMAT,
             'LUAS_LOKASI'           => $request->LUAS_LOKASI,
             'PERUNTUKAN'            => $request->PERUNTUKAN,
@@ -130,7 +132,8 @@ class PermohonanController extends Controller
     {
         $prmohonan = Permohonan::findorfail($id);
         $flw = Flow::all();
-        return view('DashboardStaf.edit-permohonan',compact('prmohonan','flw'));
+        $wlyh = Wilayah::all();
+        return view('DashboardStaf.edit-permohonan',compact('prmohonan','flw','wlyh'));
     }
 
     /**

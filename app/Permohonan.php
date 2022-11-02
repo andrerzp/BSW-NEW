@@ -18,7 +18,7 @@ class Permohonan extends Model
         'NO_TELP_PENYERAH',
         'NO_PL',
         'TANGGAL_PL',
-        'SUBWILAYAH',
+        'wilayah_id',
         'ALAMAT',
         'LUAS_LOKASI',
         'PERUNTUKAN',
@@ -32,6 +32,11 @@ class Permohonan extends Model
         public function flow()
         {
             return $this->belongsTo(Flow::class);
+        }
+
+        public function wilayah()
+        {
+            return $this->belongsTo(Wilayah::class);
         }
     
 }

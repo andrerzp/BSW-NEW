@@ -133,18 +133,12 @@
                                             @enderror
                                         </div>
 
-                                        <div class="form-group"><b>Subwilayah Pengembangan</b>
-                                            <select id="SUBWILAYAH" name="SUBWILAYAH" class="form-control" placeholder="Isi data Subwilayah Pengembangan">
-                                                <option>SWP - Batam Center (Core)</option>
-                                                <option>SWP - Batam Center (Kelurahan)</option>
-                                                <option>SWP - Nagoya</option>
-                                                <option>SWP - Nagoya (Sei Panas)</option>
-                                                <option>SWP - Tanjung Piayu</option>
-                                                <option>SWP - Nongsa</option>
-                                                <option>SWP - Kabil</option>
-                                                <option>SWP - Muka Kuning</option>
-                                                <option>SWP - Sekupang</option>
-                                                <option>SWP - Tanjung Uncang</option>
+                                        <div class="form-group"><b>Subwilayah</b>
+                                            <select id="wilayah_id" name="wilayah_id" class="form-control select 2">
+                                                <option disabled value>Pilih Aksi</option>
+                                                @foreach($wlyh as $item)
+                                                <option value="{{ $item->id }}">{{ $item->wilayah }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
 
