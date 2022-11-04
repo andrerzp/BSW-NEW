@@ -60,8 +60,6 @@
                     <tr>
                       <th>NO</th>
                       <th>Nama Badan Hukum</th>
-                      <th>Nama Penyerah Dokumen</th>
-                      <th>No. PL</th>
                       <th>Tanggal PL</th>
                       <th>Subwilayah</th>
                       <th>Status</th>
@@ -72,9 +70,7 @@
                     
                     <tr>
                       <td>{{$loop->iteration}}</td>  
-                      <td>{{$item->NPWP}}</td>
-                      <td>{{$item->NAMA_PENYERAH}}</td>
-                      <td>{{$item->NO_PL}}</td>
+                      <td>{{$item->NAMA_BADAN_HUKUM}}</td>
                       <td>{{$item->TANGGAL_PL}}</td>
                       <td>{{$item->wilayah->wilayah}}</td>
                       <td>{{$item->flow->flow}}</td>

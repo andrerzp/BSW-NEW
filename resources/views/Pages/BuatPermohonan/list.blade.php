@@ -69,7 +69,6 @@
                                             <th>JENIS</th>
                                             <th>DOWNLOAD</th>
                                             <th>STATUS</th>
-                                            <th>SETTING</th>
                                         </tr>
                                         </thead>
 
@@ -80,34 +79,8 @@
                                             <td>{{$item->TANGGAL_PL}}</td>
                                             <td>Fatwa Planologi</td>
                                             <td><a href="{{ url('/img'.$item->BERKAS_FSU) }}" target="_blank"><u>Tanda bukti pendaftaran</u></a></td>
-                                            <td>
-                                                <button type="button" class="btn btn-primary btn-sm col-md-14">Verifikasi <i class="fas fa-check-circle" style="color:white"></i></button>
-                                            </td>
-                                            <td>
-                                                <button type="button" class="btn btn-info btn-sm col-xs-2" data-toggle="modal" data-target="#exampleModal">
-                                                    Detail<i class="fas fa-check-circle" style="color:white"></i></button>
-                                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Status Permohonan </h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                Permohonan Anda Sedang <strong style="color:red">Diverifikasi</strong><br>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <a href="{{url('edit-user',$item->id)}}" class="btn">
-                                                <button type="button" class="btn btn-danger btn-sm col-xs-2 ">Status<i class="fas fa-eye" style="color:white"></i></button>
-                                                </a>
-                                                <a href="{{url('delete',$item->id)}}" onclick="return confirm('Apakah Sudah Yakin Ingin Di Hapus?')" class="btn">
-                                                    <button type="button" class="btn btn-warning btn-sm col-xs-2">Delete<i class="fas fa-trash" style="color:black"></i></button>
-                                                </a>
-                                            </td>
+                                            <td> {{$item->flow->flow}}</td>
+                                        
                                         </tr>
                                         @endforeach
                                         </tbody>
