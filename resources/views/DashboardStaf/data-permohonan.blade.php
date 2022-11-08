@@ -61,7 +61,6 @@
                       <th>NO</th>
                       <th>Nama Badan Hukum</th>
                       <th>Tanggal PL</th>
-                      <th>Subwilayah</th>
                       <th>Status</th>
                       <th>Aksi</th>
                     </tr>
@@ -72,7 +71,6 @@
                       <td>{{$loop->iteration}}</td>  
                       <td>{{$item->NAMA_BADAN_HUKUM}}</td>
                       <td>{{$item->TANGGAL_PL}}</td>
-                      <td>{{$item->wilayah->wilayah}}</td>
                       <td>{{$item->flow->flow}}</td>
                       <td>
                         <a href="{{url('edit-permohonan',$item->id)}}" class="btn">

@@ -65,17 +65,6 @@ Route::get('/reklame', function () {
 })->name('reklame');
 #reklame
 
-#blog
-Route::get('blog', [BlogController::class, 'index'])->name('blog');
-Route::get('blog/{slug}', [BlogController::class, 'show'])->name('blog.detail');
-#blog
-
-#reklame
-Route::get('/daftarorang', function () {
-    return view('Pages.daftarorang');
-})->name('daftarorang');
-#reklame
-
 #search
 Route::get('/search','PermohonanController@search');
 Route::get('/delete/{id}','PermohonanController@destroy')->name('delete');

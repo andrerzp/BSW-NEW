@@ -134,7 +134,7 @@
                                         </div>
 
                                         <div class="form-group"><b>Subwilayah</b>
-                                            <select id="wilayah_id" name="wilayah_id" class="form-control select 2">
+                                            <select id="WILAYAH_ID" name="WILAYAH_ID" class="form-control select 2">
                                                 <option disabled value>Pilih Aksi</option>
                                                 @foreach($wlyh as $item)
                                                 <option value="{{ $item->id }}">{{ $item->wilayah }}</option>

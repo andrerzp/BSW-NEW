@@ -17,7 +17,7 @@
                            data-bs-toggle="dropdown" aria-expanded="false">BUAT PERIJINAN
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{ route('daftarorang') }}">Daftar Untuk Perorangan</a></li>
+                            <li><a class="dropdown-item" href="#">Daftar Untuk Perorangan</a></li>
                             <li>
                                 <a class="dropdown-item" href="{{ route('home') }}">Daftar Untuk Badan Hukum</a>
                             </li>

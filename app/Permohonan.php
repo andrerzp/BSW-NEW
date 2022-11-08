@@ -18,7 +18,7 @@ class Permohonan extends Model
         'NO_TELP_PENYERAH',
         'NO_PL',
         'TANGGAL_PL',
-        'wilayah_id',
+        'WILAYAH_ID',
         'ALAMAT',
         'LUAS_LOKASI',
         'PERUNTUKAN',

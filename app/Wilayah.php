@@ -8,7 +8,10 @@ class Wilayah extends Model
 {
     protected $table = "wilayah";
     protected $primaryKey = "id";
-    protected $fillable = ['id','jabatan'];
+    protected $fillable = ['id','wilayah'];
 
-    
+    public function permohonan()
+    {
+        return $this->hasMany(Permohonan::class);
+    }
 }

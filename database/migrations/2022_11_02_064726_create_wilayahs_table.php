@@ -15,7 +15,7 @@ class CreateWilayahsTable extends Migration
     {
         Schema::create('wilayah', function (Blueprint $table) {
             $table->id();
-            $table->string('wilayah',100);
+            $table->string('wilayah',100)->nullable()->default('text');
             $table->timestamps();
         });
     }
